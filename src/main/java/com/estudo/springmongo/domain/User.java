@@ -3,22 +3,27 @@ package com.estudo.springmongo.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "user")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	private String id;
-	private String nameString;
+	private String name;
 	private String email;
 
 	public User() {
 
 	}
 
-	public User(String id, String nameString, String email) {
+	public User(String id, String name, String email) {
 
 		this.id = id;
-		this.nameString = nameString;
+		this.name = name;
 		this.email = email;
 	}
 
@@ -30,12 +35,14 @@ public class User implements Serializable {
 		this.id = id;
 	}
 
-	public String getNameString() {
-		return nameString;
+	
+
+	public String getName() {
+		return name;
 	}
 
-	public void setNameString(String nameString) {
-		this.nameString = nameString;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getEmail() {
